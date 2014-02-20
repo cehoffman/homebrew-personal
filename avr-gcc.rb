@@ -32,7 +32,6 @@ class AvrGcc < Formula
             # ...and the binaries...
             "--bindir=#{bin}",
             "--with-sysroot=#{Formula.factory('avr-libc').opt_prefix}/avr",
-            '--with-native-system-header-dir=include',
             '--with-build-sysroot=/usr/include',
             # This shouldn't be necessary
             "--with-as=#{binutils.bin}/avr-as",
