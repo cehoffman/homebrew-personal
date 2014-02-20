@@ -6,7 +6,7 @@ class AvrBinutils < Formula
   homepage 'http://www.gnu.org/software/binutils/binutils.html'
   sha1 '7ac75404ddb3c4910c7594b51ddfc76d4693debb'
 
-  option 'with-libbfd', 'Disable installation of libbfd.'
+  option 'without-libbfd', 'Disable installation of libbfd.'
 
   def install
     ENV['CPPFLAGS'] = "-I#{include}"
@@ -22,14 +22,7 @@ class AvrBinutils < Formula
       system './configure', '--enable-install-libbfd', *args
       system 'make'
       system 'make', 'install'
-    end if build.with? 'libbfd'
-
-    # brew's build environment is in our way
-    ENV.delete 'CFLAGS'
-    ENV.delete 'CXXFLAGS'
-    ENV.delete 'LD'
-    ENV.delete 'CC'
-    ENV.delete 'CXX'
+    end unless build.without? 'libbfd'
 
     system './configure', '--target=avr', *args
 
