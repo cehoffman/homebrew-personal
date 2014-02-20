@@ -25,16 +25,12 @@ class AvrGcc < Formula
     sha1 '586cf60bb9d2b67498b73b38b546f7b4620dc86c'
   end
 
-  def install
-    # brew's build environment is in our way
-    # ENV.delete 'CFLAGS'
-    # ENV.delete 'CXXFLAGS'
-    # ENV.delete 'AS'
-    # ENV.delete 'LD'
-    # ENV.delete 'NM'
-    # ENV.delete 'RANLIB'
+  resource 'avr-libc-html' do
+    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-user-manual-1.8.0.tar.bz2'
+    sha1 '54f991e63c46eb430986bea3bae0e28cbe0b87c8'
+  end
 
-    binutils = Formula.factory('avr-binutils')
+  def install
     args = [
             "--target=avr",
             "--disable-libssp",
@@ -49,9 +45,6 @@ class AvrGcc < Formula
             "--datarootdir=#{share}",
             # ...and the binaries...
             "--bindir=#{bin}",
-            # This shouldn't be necessary
-            "--with-as=#{binutils.bin}/avr-as",
-            "--with-ld=#{binutils.bin}/avr-ld"
            ]
 
     # The C compiler is always built, C++ can be disabled
@@ -85,5 +78,6 @@ class AvrGcc < Formula
     end
 
     man.install resource('avr-libc-manpages')
+    (share/'doc/avr-libc').install resource('avr-libc-html')
   end
 end
