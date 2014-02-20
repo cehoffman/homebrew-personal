@@ -15,21 +15,6 @@ class AvrGcc < Formula
 
   option 'with-cxx', 'build with support for C++'
 
-  resource 'avr-libc' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-1.8.0.tar.bz2'
-    sha1 '2e3815221be8e22f5f2c07b922ce92ecfa85bade'
-  end
-
-  resource 'avr-libc-manpages' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-manpages-1.8.0.tar.bz2'
-    sha1 '586cf60bb9d2b67498b73b38b546f7b4620dc86c'
-  end
-
-  resource 'avr-libc-html' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-user-manual-1.8.0.tar.bz2'
-    sha1 '54f991e63c46eb430986bea3bae0e28cbe0b87c8'
-  end
-
   def install
     binutils = Formula.factory('avr-binutils')
     args = [
@@ -46,6 +31,7 @@ class AvrGcc < Formula
             "--datarootdir=#{share}",
             # ...and the binaries...
             "--bindir=#{bin}",
+            "--with-sysroot=#{Formula.factory('avr-libc').opt_prefix}/avr",
             # This shouldn't be necessary
             "--with-as=#{binutils.bin}/avr-as",
             "--with-ld=#{binutils.bin}/avr-ld"
@@ -70,19 +56,5 @@ class AvrGcc < Formula
       # otherwise, the symlinking of the keg fails
       File.unlink "#{prefix}/lib/#{multios}/libiberty.a"
     end
-
-    ENV['CC'] = bin/'avr-gcc'
-    resource('avr-libc').stage do
-      system "./configure",
-            "--build=#{%x[./config.guess].strip}",
-            "--prefix=#{prefix}",
-            "--host=avr"
-      system 'make', 'install'
-      prefix.install prefix/'avr/include', prefix/'avr/lib'
-      rm_r prefix/'avr'
-    end
-
-    man.install resource('avr-libc-manpages')
-    (share/'doc/avr-libc').install resource('avr-libc-html')
   end
 end
