@@ -31,6 +31,7 @@ class AvrGcc < Formula
   end
 
   def install
+    binutils = Formula.factory('avr-binutils')
     args = [
             "--target=avr",
             "--disable-libssp",
@@ -45,6 +46,9 @@ class AvrGcc < Formula
             "--datarootdir=#{share}",
             # ...and the binaries...
             "--bindir=#{bin}",
+            # This shouldn't be necessary
+            "--with-as=#{binutils.bin}/avr-as",
+            "--with-ld=#{binutils.bin}/avr-ld"
            ]
 
     # The C compiler is always built, C++ can be disabled
@@ -74,7 +78,8 @@ class AvrGcc < Formula
             "--prefix=#{prefix}",
             "--host=avr"
       system 'make', 'install'
-      prefix.install prefix/'avr'
+      prefix.install prefix/'avr/include', prefix/'avr/lib'
+      rm_r prefix/'avr'
     end
 
     man.install resource('avr-libc-manpages')
