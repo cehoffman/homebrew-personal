@@ -20,6 +20,11 @@ class AvrGcc < Formula
     sha1 '2e3815221be8e22f5f2c07b922ce92ecfa85bade'
   end
 
+  resource 'avr-libc-manpages' do
+    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-manpages-1.8.0.tar.bz2'
+    sha1 '586cf60bb9d2b67498b73b38b546f7b4620dc86c'
+  end
+
   def install
     # brew's build environment is in our way
     # ENV.delete 'CFLAGS'
@@ -69,15 +74,16 @@ class AvrGcc < Formula
       File.unlink "#{prefix}/lib/#{multios}/libiberty.a"
     end
 
-    ENV.prepend_path 'PATH', bin
     ENV['CC'] = bin/'avr-gcc'
     resource('avr-libc').stage do
-      p ENV['PATH']
       system "./configure",
             "--build=#{%x[./config.guess].strip}",
             "--prefix=#{prefix}",
             "--host=avr"
       system 'make', 'install'
+      prefix.install prefix/'avr'
     end
+
+    man.install resource('avr-libc-manpages')
   end
 end
