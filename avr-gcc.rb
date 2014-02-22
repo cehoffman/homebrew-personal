@@ -52,7 +52,7 @@ class AvrGcc < Formula
 
     # The C compiler is always built, C++ can be disabled
     languages = %w[c]
-    languages << 'c++' if build.without? 'cxx'
+    languages << 'c++' unless build.without? 'cxx'
 
     mkdir 'build' do
       system '../configure', "--enable-languages=#{languages.join(',')}", *args
