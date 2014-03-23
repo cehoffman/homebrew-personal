@@ -36,7 +36,7 @@ class Vim < Formula
 
   patch do
     url 'https://12985092515833507022.googlegroups.com/attach/b72719c27b178f52/pum-silent.diff?part=2&view=1&vt=ANaJVrFwPjohkoxKQsd4PhRnvyCOouxHwe5LGAcwweas-n_oakomC7AKXTiPFqpGSOPTvsX57-s4bw-YKanaOJV72RQCTruZ_zOX1bjM6VRQk_CCUSZCj7E'
-    sha1 '3a159b9d24076d27647eea4aeb9d637b7af7a00f'
+    sha1 'cac66ae4d89deb93ef46093cfcb21bde0ff1f1ab'
   end
 
   def install
