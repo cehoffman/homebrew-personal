@@ -52,7 +52,7 @@ end
 
 __END__
 Copy and paste of fix from https://github.com/GPGTools/MacGPG2/commit/f4c3e1bbf1c96cf03ad33a364ec10365f68bf63f
-to account for remove of pcsc-wrapper and relocation of code.
+to account for removal of pcsc-wrapper and relocation of code.
 diff --git a/scd/apdu.c b/scd/apdu.c
 index e8797cd..ea47bfb 100644
 --- a/scd/apdu.c
