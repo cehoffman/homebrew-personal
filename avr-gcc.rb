@@ -5,8 +5,8 @@ require 'formula'
 
 class AvrGcc < Formula
   homepage 'http://gcc.gnu.org'
-  url 'http://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2'
-  sha1 '810fb70bd721e1d9f446b6503afe0a9088b62986'
+  url 'http://ftp.gnu.org/gnu/gcc/gcc-5.2.0/gcc-5.2.0.tar.bz2'
+  sha256 '5f835b04b5f7dd4f4d2dc96190ec1621b8d89f2dc6f638f9f8bc1b1014ba8cad'
 
   depends_on 'avr-binutils'
   depends_on 'gmp'
@@ -16,22 +16,23 @@ class AvrGcc < Formula
   option 'without-cxx', 'build without support for C++'
 
   resource 'avr-libc' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-1.8.0.tar.bz2'
-    sha1 '2e3815221be8e22f5f2c07b922ce92ecfa85bade'
+    url '
+    http://download.savannah.gnu.org/releases/avr-libc/avr-libc-1.8.1.tar.bz2'
+    sha256 'e6a46c279e023a11e6dff00e6d0dd248f5cb145f5aecddfec53f0ab0cd691965'
   end
 
   resource 'avr-libc-manpages' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-manpages-1.8.0.tar.bz2'
-    sha1 '586cf60bb9d2b67498b73b38b546f7b4620dc86c'
+    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-manpages-1.8.1.tar.bz2'
+    sha256 '93ee7ac6880048abd968873fa3f180a49ec7b141b39c1940b7c4afd6efc9ba6c'
   end
 
   resource 'avr-libc-html' do
-    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-user-manual-1.8.0.tar.bz2'
-    sha1 '54f991e63c46eb430986bea3bae0e28cbe0b87c8'
+    url 'http://download.savannah.gnu.org/releases/avr-libc/avr-libc-user-manual-1.8.1.tar.bz2'
+    sha256 '0966df5d624f6a24de86086d388914501904302bb60a0cfb0b17d024f2ba7ce9'
   end
 
   def install
-    binutils = Formula.factory('avr-binutils')
+    binutils = Formula['avr-binutils']
     args = [
             "--target=avr",
             '--enable-long-long',
@@ -42,12 +43,12 @@ class AvrGcc < Formula
             "--with-dwarf2",
             # Sandbox everything...
             "--prefix=#{prefix}",
-            "--with-gmp=#{Formula.factory('gmp').opt_prefix}",
-            "--with-mpfr=#{Formula.factory('mpfr').opt_prefix}",
-            "--with-mpc=#{Formula.factory('libmpc').opt_prefix}",
+            "--with-gmp=#{Formula['gmp'].opt_prefix}",
+            "--with-mpfr=#{Formula['mpfr'].opt_prefix}",
+            "--with-mpc=#{Formula['libmpc'].opt_prefix}",
             # This shouldn't be necessary
-            "--with-as=#{binutils.opt_prefix}/bin/avr-as",
-            "--with-ld=#{binutils.opt_prefix}/bin/avr-ld"
+            "--with-as=#{binutils.opt_bin}/avr-as",
+            "--with-ld=#{binutils.opt_bin}/avr-ld"
            ]
 
     # The C compiler is always built, C++ can be disabled
@@ -80,7 +81,7 @@ class AvrGcc < Formula
 
   def caveats; <<-EOS.undent
     Include the following directory in your path to use avr-gcc easily.
-      #{opt_prefix}/bin
+      #{opt_bin}
     EOS
   end
 end

@@ -1,10 +1,10 @@
 require 'formula'
 
 class AvrBinutils < Formula
-  url 'http://ftpmirror.gnu.org/binutils/binutils-2.24.tar.bz2'
-  mirror 'http://ftp.gnu.org/gun/binutils/binutils-2.24.tar.bz2'
+  url 'http://ftpmirror.gnu.org/binutils/binutils-2.25.tar.bz2'
+  mirror 'http://ftp.gnu.org/gun/binutils/binutils-2.25.tar.bz2'
   homepage 'http://www.gnu.org/software/binutils/binutils.html'
-  sha1 '7ac75404ddb3c4910c7594b51ddfc76d4693debb'
+  sha1 'b46cc90ebaba7ffcf6c6d996d60738881b14e50d'
 
   option 'without-libbfd', 'Disable installation of libbfd.'
 
