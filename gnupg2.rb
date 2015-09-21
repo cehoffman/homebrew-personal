@@ -30,7 +30,7 @@ class Gnupg2 < Formula
       --prefix=#{prefix}
       --sbindir=#{bin}
       --enable-symcryptrun
-      --with-pinentry-pgm=#{Formula['pinentry-mac'].bin_prefix}/pinentry-mac
+      --with-pinentry-pgm=#{Formula['pinentry-mac'].opt_bin}/pinentry-mac
     ]
 
     if build.with? "readline"
