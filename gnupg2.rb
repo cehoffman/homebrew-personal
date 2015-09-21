@@ -12,7 +12,7 @@ class Gnupg2 < Formula
   depends_on "libksba"
   depends_on "libassuan"
   depends_on "npth"
-  depends_on "cehoffman/personal/pinentry-mac"
+  depends_on "pinentry-mac"
   depends_on "readline" => :optional
 
   def install
@@ -30,7 +30,7 @@ class Gnupg2 < Formula
       --prefix=#{prefix}
       --sbindir=#{bin}
       --enable-symcryptrun
-      --with-pinentry-pgm=#{Formula['cehoffman/personal/pinentry-mac'].opt_prefix}/pinentry-mac.app/Contents/MacOS/pinentry-mac
+      --with-pinentry-pgm=#{Formula['pinentry-mac'].bin_prefix}/pinentry-mac
     ]
 
     if build.with? "readline"
