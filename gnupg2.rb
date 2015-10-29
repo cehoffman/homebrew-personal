@@ -15,6 +15,7 @@ class Gnupg2 < Formula
   depends_on "libksba"
   depends_on "libassuan"
   depends_on "pinentry-mac"
+  depends_on "libusb-compat" => :recommended
   depends_on "readline" => :optional
   depends_on "gettext"
 
