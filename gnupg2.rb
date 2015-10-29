@@ -2,18 +2,21 @@ require "formula"
 
 class Gnupg2 < Formula
   homepage "https://www.gnupg.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.8.tar.bz2"
-  sha1 "61f5bc656dd7fddd4ab67b720d47ef0651bfb727"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
+  sha256 "1cb7633a57190beb66f9249cb7446603229b273d4d89331b75c652fa4a29f7b6"
 
   option "8192", "Build with support for private keys of up to 8192 bits"
 
+  depends_on "pkg-config" => :build
+  depends_on "npth"
   depends_on "libgpg-error"
   depends_on "libgcrypt"
   depends_on "libksba"
   depends_on "libassuan"
-  depends_on "npth"
   depends_on "pinentry-mac"
   depends_on "readline" => :optional
+  depends_on "gettext"
 
   patch :DATA
 
@@ -24,13 +27,15 @@ class Gnupg2 < Formula
       s.gsub! "PACKAGE_NAME='gnupg'", "PACKAGE_NAME='gnupg2'"
       s.gsub! "PACKAGE_TARNAME='gnupg'", "PACKAGE_TARNAME='gnupg2'"
     end
-    inreplace "g10/keygen.c", "max=4096", "max=8192" if build.include? "8192"
 
-    p 
+    inreplace "tools/gpgkey2ssh.c", "gpg --list-keys", "gpg2 --list-keys"
+
     args = %W[
       --disable-dependency-tracking
+      --disable-silent-rules
       --prefix=#{prefix}
       --sbindir=#{bin}
+      --sysconfdir=#{etc}
       --enable-symcryptrun
       --with-pinentry-pgm=#{Formula['pinentry-mac'].opt_bin}/pinentry-mac
     ]
