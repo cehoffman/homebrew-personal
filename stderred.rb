@@ -14,7 +14,7 @@ class Stderred < Formula
     end
   end
 
-  def caveats; <<-EOS.undent
+  def caveats; <<~EOS
       To use stderred export the following before running a command
           export DYLD_INSERT_LIBRARIES="#{HOMEBREW_PREFIX}/lib/libstderred.dylib${DYLD_INSERT_LIBRARIES:+:DYLD_INSERT_LIBRARIES}"
     EOS
