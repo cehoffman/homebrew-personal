@@ -12,6 +12,6 @@ class LuaLanguageServer < Formula
     end
     system './3rd/luamake/luamake', 'rebuild'
     bin.install Dir['bin/macOS/*']
-    libexec.install 'main.lua', 'platform.lua', 'script', 'locale', 'debugger.lua'
+    libexec.install 'main.lua', 'platform.lua', 'script', 'locale', 'debugger.lua', 'meta'
   end
 end
