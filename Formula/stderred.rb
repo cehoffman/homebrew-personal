@@ -2,10 +2,9 @@ require 'formula'
 
 class Stderred < Formula
   homepage 'https://github.com/sickill/stderred'
-  url 'https://github.com/sickill/stderred.git'
-  version 'HEAD'
+  head 'https://github.com/sickill/stderred.git', branch: 'master'
 
-  depends_on 'cmake'
+  depends_on 'cmake' => :build
 
   def install
     mkdir 'build' do
