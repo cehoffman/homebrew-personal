@@ -5,21 +5,21 @@
 class Claudecost < Formula
   desc "Claude conversation cost analyzer"
   homepage "https://git.ceh.im/cehoffman/claudecost"
-  version "0.2.0"
+  version "0.3.0"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_darwin_amd64.tar.gz"
-      sha256 "a28603b42953bc8bb5fa9616e4f95e4a211949fb54478e078bab8cb3c1c6b2bc"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.3.0/claudecost_0.3.0_darwin_amd64.tar.gz"
+      sha256 "de28f188a165f023bc4c44ceb96fd1952c0e8c163a1069dc6f832f451c885b7f"
 
       def install
         bin.install "claudecost"
       end
     end
     if Hardware::CPU.arm?
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_darwin_arm64.tar.gz"
-      sha256 "418fb9eec802b950885f2ade4a2721080cbf005560bc646dc30b915e3c08a464"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.3.0/claudecost_0.3.0_darwin_arm64.tar.gz"
+      sha256 "db5250e9e563ec166129f6d4db57af74f7a9a4e3030663fac3a81bfb9809deca"
 
       def install
         bin.install "claudecost"
@@ -29,15 +29,15 @@ class Claudecost < Formula
 
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_linux_amd64.tar.gz"
-      sha256 "ba478ca1d702f31f240d9930d413697acb76811d6115bdcc5d80e5deed7d9b4d"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.3.0/claudecost_0.3.0_linux_amd64.tar.gz"
+      sha256 "49e36ab9f8010ebfa04efbc0f4b478ecf0f48af8abe6810f068886ec971f9273"
       def install
         bin.install "claudecost"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_linux_arm64.tar.gz"
-      sha256 "3d9ac05e7c8772eaed9ac28209e9da1cc854ab20c882b2dcd21650afb6402302"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.3.0/claudecost_0.3.0_linux_arm64.tar.gz"
+      sha256 "18a8335565c76d2bd8c4df82c2436e9360fbce1a579d88d8553261ae8b07aa41"
       def install
         bin.install "claudecost"
       end
