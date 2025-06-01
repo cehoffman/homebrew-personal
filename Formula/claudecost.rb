@@ -11,7 +11,7 @@ class Claudecost < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_darwin_amd64.tar.gz"
-      sha256 "0c3a9ff2f6e945d81b8087efd0ac626c82b161e1e62bdb0e228116be7a8382b6"
+      sha256 "a28603b42953bc8bb5fa9616e4f95e4a211949fb54478e078bab8cb3c1c6b2bc"
 
       def install
         bin.install "claudecost"
@@ -19,7 +19,7 @@ class Claudecost < Formula
     end
     if Hardware::CPU.arm?
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_darwin_arm64.tar.gz"
-      sha256 "d493fc571e584329e3827bc236fdee4e57c75ce7388cf0dafeaf17f8f26067d6"
+      sha256 "418fb9eec802b950885f2ade4a2721080cbf005560bc646dc30b915e3c08a464"
 
       def install
         bin.install "claudecost"
@@ -30,14 +30,14 @@ class Claudecost < Formula
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_linux_amd64.tar.gz"
-      sha256 "819b758aec1476a9e351a0e1b47076f6ada920b6099ef1fbfe6293339d5e0782"
+      sha256 "ba478ca1d702f31f240d9930d413697acb76811d6115bdcc5d80e5deed7d9b4d"
       def install
         bin.install "claudecost"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.2.0/claudecost_0.2.0_linux_arm64.tar.gz"
-      sha256 "2f287f35d5c67b40158b9a315a0589966c9eaffd8d16eda42d865063530ebbe3"
+      sha256 "3d9ac05e7c8772eaed9ac28209e9da1cc854ab20c882b2dcd21650afb6402302"
       def install
         bin.install "claudecost"
       end
