@@ -11,7 +11,7 @@ class Prism < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://git.ceh.im/cehoffman/prism/releases/download/v0.1.0/prism_0.1.0_darwin_amd64.tar.gz"
-      sha256 "ce95e29e69b4a1c059ee538c943060cd707a00c43366940816db2341ae5823c8"
+      sha256 "7606e0f4f977ef06fb101907d404dadfc66872ebb35d305be35539916a3c6fb9"
 
       def install
         bin.install "prism"
@@ -19,7 +19,7 @@ class Prism < Formula
     end
     if Hardware::CPU.arm?
       url "https://git.ceh.im/cehoffman/prism/releases/download/v0.1.0/prism_0.1.0_darwin_arm64.tar.gz"
-      sha256 "cbb799a8222b28e29e1a74ace44819784b6d012b0d13df35f748e0e5f8920ece"
+      sha256 "ca2c67f75294fa0391855e61325444cf17f8ea72409ae0f06674d8d9f4d15461"
 
       def install
         bin.install "prism"
@@ -30,14 +30,14 @@ class Prism < Formula
   on_linux do
     if Hardware::CPU.intel? and Hardware::CPU.is_64_bit?
       url "https://git.ceh.im/cehoffman/prism/releases/download/v0.1.0/prism_0.1.0_linux_amd64.tar.gz"
-      sha256 "478a3195420508ffb5f4bd31687a5c83a174145545e609c698a7ce477515fcbb"
+      sha256 "3211fa93ecb36a8c652aa972269b4d1af51d99ba444671963680514068d51492"
       def install
         bin.install "prism"
       end
     end
     if Hardware::CPU.arm? and Hardware::CPU.is_64_bit?
       url "https://git.ceh.im/cehoffman/prism/releases/download/v0.1.0/prism_0.1.0_linux_arm64.tar.gz"
-      sha256 "c5c5ccd13af0b64efd6c47a29c17ff4c0b150dcfeef2d0c3e2a3179d8c521c12"
+      sha256 "91464a9a1fa8c29229616ea569ec9b198def3de2c99507b0e6d66c1f4c04511d"
       def install
         bin.install "prism"
       end
