@@ -2,7 +2,7 @@
 cask "claudecost" do
   desc "Claude conversation cost analyzer"
   homepage "https://git.ceh.im/cehoffman/claudecost"
-  version "0.6.0"
+  version "0.7.0"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,23 @@ cask "claudecost" do
 
   on_macos do
     on_intel do
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.6.0/claudecost_Darwin_x86_64.tar.gz"
-      sha256 "4c85bf45007ebf1c86c207ca7a45647c16a094989ca8eda49933c5ce23261abd"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.7.0/claudecost_Darwin_x86_64.tar.gz"
+      sha256 "bb34abee0411c847e9ff82f566ca40be78fe939ba56c4d1702676ae929d81426"
     end
     on_arm do
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.6.0/claudecost_Darwin_arm64.tar.gz"
-      sha256 "966962677dbd756e56d919a428a606a16a45d8362e9326bcc69e33f22c6218e7"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.7.0/claudecost_Darwin_arm64.tar.gz"
+      sha256 "082899cdc503f7329972f12ae45672f490e3bf49cd18992e2c3de7df7fa4df4a"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.6.0/claudecost_Linux_x86_64.tar.gz"
-      sha256 "7ccb1b2abf4fdaa3c51ebdbb980de6ab3bbaba91036538582abbc1ad47202428"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.7.0/claudecost_Linux_x86_64.tar.gz"
+      sha256 "d7a0cdb65f9c40c73e1adff5131e20a298dca91e50c175bbd386479cb7d08823"
     end
     on_arm do
-      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.6.0/claudecost_Linux_arm64.tar.gz"
-      sha256 "8d4bdd211ad0fee7ebd2048fc1c369d8b31ba9710de9bc2879c0f11d9d146d14"
+      url "https://git.ceh.im/cehoffman/claudecost/releases/download/v0.7.0/claudecost_Linux_arm64.tar.gz"
+      sha256 "b2339e385739d00f38f66a1a8b99303a2ed1a0e7f84a9160665262dbaaf52a51"
     end
   end
 
