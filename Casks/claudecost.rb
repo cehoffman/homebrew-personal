@@ -14,23 +14,27 @@ cask "claudecost" do
   on_macos do
     on_intel do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Darwin_x86_64.tar.gz"
-      sha256 "7330e7835709481a36fd852782f84ea4d1b2c4d5bcbd0f0975619575a9aaf5d3"
+      sha256 "1e2bc505821ec5c604e77d94d9271fe44b090769d43f12e5bea78f5eb21bcd6a"
     end
     on_arm do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Darwin_arm64.tar.gz"
-      sha256 "b2154c623be6e3116ed4be9e83795b07eaed9081f97039e13307749d39aad6ea"
+      sha256 "75f885501953fa1d2c44a6b1ae3294f731fe665d974460ebc1c0822b2a4fad8d"
     end
   end
 
   on_linux do
     on_intel do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Linux_x86_64.tar.gz"
-      sha256 "caf0571a636104c693baa5d5e2dd6d439f9256d9c012c350c42e8237dc782892"
+      sha256 "90217b4066852d9d11698b3bf9d366336c071a05d6d1c48ef58eddb1bc84eb26"
     end
     on_arm do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Linux_arm64.tar.gz"
-      sha256 "607e9f7d86562b1dc89c6eee0e826f9814a89d050c3dfc6e0f8f8c64b22012e1"
+      sha256 "4d35b537024d0ac5a43d24d51e9fdb16fd05ec2b7e1160b35860907c75bbb2d9"
     end
+  end
+
+  postflight do
+    system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/claudecost"]
   end
 
   # No zap stanza required
