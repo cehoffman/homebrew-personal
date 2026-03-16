@@ -14,22 +14,22 @@ cask "claudecost" do
   on_macos do
     on_intel do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Darwin_x86_64.tar.gz"
-      sha256 "1e2bc505821ec5c604e77d94d9271fe44b090769d43f12e5bea78f5eb21bcd6a"
+      sha256 "d542c8ea2b7061813540fb3f4c1e7a5504a219d80784db85522002d37055aead"
     end
     on_arm do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Darwin_arm64.tar.gz"
-      sha256 "75f885501953fa1d2c44a6b1ae3294f731fe665d974460ebc1c0822b2a4fad8d"
+      sha256 "099ce3f1e5b185ff9c10e5c1d309b3b01c18bf4c2bb0ff188a4dbf2ba2d4ab9c"
     end
   end
 
   on_linux do
     on_intel do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Linux_x86_64.tar.gz"
-      sha256 "90217b4066852d9d11698b3bf9d366336c071a05d6d1c48ef58eddb1bc84eb26"
+      sha256 "80d31f6bd78b64689e0dd271c7a24ed03d7994ca69d678778f573b8b9612f784"
     end
     on_arm do
       url "https://git.ceh.im/cehoffman/claudecost/releases/download/v#{version}/claudecost_Linux_arm64.tar.gz"
-      sha256 "4d35b537024d0ac5a43d24d51e9fdb16fd05ec2b7e1160b35860907c75bbb2d9"
+      sha256 "f6adadf5c39dd00ec367e3c22518c6f041ae44e6482438a07f184de80fc71328"
     end
   end
 
